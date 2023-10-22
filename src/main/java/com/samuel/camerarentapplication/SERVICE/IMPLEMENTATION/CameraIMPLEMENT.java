@@ -1,0 +1,38 @@
+package com.samuel.camerarentapplication.SERVICE.IMPLEMENTATION;
+
+import com.samuel.camerarentapplication.DAO.CameraDAO;
+import com.samuel.camerarentapplication.MODAL.Camera;
+import com.samuel.camerarentapplication.SERVICE.cameraInterf;
+
+import java.util.List;
+
+public class CameraIMPLEMENT implements cameraInterf {
+
+
+    CameraDAO DAO = new CameraDAO();
+
+    @Override
+    public Camera save_Cam(Camera st) {
+        return DAO.save_Cam(st);
+    }
+
+    @Override
+    public List<Camera> retrieveCam() {
+        return DAO.retrieveCam();
+    }
+
+    @Override
+    public Camera findCam(String serialNbr) {
+        return DAO.findCam(serialNbr);
+    }
+
+    @Override
+    public boolean deleteCam(Camera st) {
+        return DAO.deleteCam(st);
+    }
+
+    @Override
+    public boolean updateCam(Camera st) {
+        return DAO.updateCam(st);
+    }
+}
