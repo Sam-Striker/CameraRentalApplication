@@ -17,7 +17,8 @@ public class CameraBean {
     private String rentStatus;
     private LocalDate date;
     private Users user;
-
+    private String infoMessage;
+    private String errorMessage;
     public CameraBean() {
     }
 }

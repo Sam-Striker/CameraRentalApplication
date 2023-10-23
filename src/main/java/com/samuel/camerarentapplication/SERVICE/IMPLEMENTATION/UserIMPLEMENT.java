@@ -29,18 +29,13 @@ public class UserIMPLEMENT implements UserInterf {
     }
 
     @Override
-    public Users findRoleById(String id) {
-        return DAO.findRoleById(id);
+    public Roles findRoleByName(String roleName) {
+        return DAO.findRoleByName(roleName);
     }
 
     @Override
     public Users getUserByNationalID(String nationalID) {
         return DAO.getUserByNationalID(nationalID);
-    }
-
-    @Override
-    public Roles findRoleByName(String roleName) {
-        return DAO.findRoleByName(roleName);
     }
 
 

@@ -8,7 +8,6 @@ import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 
 public class CameraDAO {
@@ -30,24 +29,18 @@ public class CameraDAO {
         return session.createQuery("from Camera ", Camera.class).list();
     }
 
-    public boolean deleteCam(Camera cam){
+    public boolean updateCamStatus(Camera cam, int newStatus) {
         Transaction tx = session.beginTransaction();
-        session.remove(cam);
+        cam.setStatus(newStatus);
+        session.update(cam);
         tx.commit();
         session.close();
         return true;
     }
 
-
     public Camera findCam(String serialNbr){
 
-//        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-//            String hql = "FROM Camera WHERE serialNbr = :serialNbr";
-//            Query query = session.createQuery(hql, Camera.class);
-//            query.setParameter("serialNbr", serialNbr);
-//            return query.uniqueResult();
-//        }
-
+        Session session = null;
         List<Camera> results = new ArrayList<>();
 
         try {
@@ -58,7 +51,6 @@ public class CameraDAO {
 
             results = query.getResultList();
         } catch (HibernateException ex) {
-            // Handle the exception here, e.g., log or rethrow it
             ex.printStackTrace();
         } finally {
             if (session != null) {
@@ -76,9 +68,34 @@ public class CameraDAO {
         boolean result = false;
         Transaction tx = session.beginTransaction();
         session.update(cam);
+        result = Boolean.TRUE;
         tx.commit();
         session.close();
-        result = Boolean.TRUE;
         return result;
     }
+
+    public boolean updateCameraRentStatus(int cameraId, String newRentStatus) {
+        Transaction tx = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            tx = session.beginTransaction();
+
+            Camera camera = session.get(Camera.class, cameraId);
+            if (camera != null) {
+                camera.setRentStatus(newRentStatus);
+                session.update(camera);
+
+                tx.commit();
+                return true;
+            } else {
+                return false; // Handle the case where the camera is not found
+            }
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+            return false; // Handle exceptions as needed
+        }
+    }
+
 }

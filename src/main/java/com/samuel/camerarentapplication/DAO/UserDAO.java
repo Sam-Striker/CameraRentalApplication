@@ -48,14 +48,6 @@ public class UserDAO {
         }
     }
 
-    public Users findRoleById(String id) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "FROM Users WHERE role = :role_id";
-            Query<Users> query = session.createQuery(hql, Users.class);
-            query.setParameter("role_id", id);
-            return query.uniqueResult();
-        }
-    }
 
     public Roles findRoleByName(String roleName) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

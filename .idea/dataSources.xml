@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="7cde97e7-6eec-4dea-8542-dad8c85d47d7">
+    <data-source source="LOCAL" name="cameraRent@localhost" uuid="78345a24-2db6-4507-b684-593ced413856">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>Hibernate
-
-D:/essentials/notes/rra/first_pro/CameraRentApplication/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/cameraRent</jdbc-url>
       <jdbc-additional-properties>

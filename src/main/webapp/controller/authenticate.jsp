@@ -7,7 +7,6 @@
 --%>
 <%@page import="com.samuel.camerarentapplication.SERVICE.UserInterf" %>
 <%@page import="com.samuel.camerarentapplication.SERVICE.IMPLEMENTATION.UserIMPLEMENT" %>
-<%@ page import="com.samuel.camerarentapplication.BEAN.UserBean" %>
 <%@ page import="com.samuel.camerarentapplication.MODAL.Roles" %>
 <%@ page import="com.samuel.camerarentapplication.MODAL.Users" %>
 <%@ page import="com.samuel.camerarentapplication.DAO.UserDAO" %>
@@ -27,9 +26,13 @@
       userBean.setNationalID(nationalID);
       userBean.setPassword(password);
 
-        Users user = userDAO.getUserByNationalID(nationalID);
+      Users user = userDAO.getUserByNationalID(nationalID);
 
         if (user != null) {
+
+          int userId = user.getId();
+          request.getSession().setAttribute("userId", userId);
+
           Roles role = user.getRole();
           if (role != null) {
             String roleName = role.getRole_name();
@@ -39,7 +42,7 @@
               return; // Return to stop further execution
             } else if ("seller".equals(roleName)) {
               // Redirect to the admin page
-              response.sendRedirect("../components/Admin.jsp");
+              response.sendRedirect("../components/InsertCamera.jsp");
               return; // Return to stop further execution
             }
           }

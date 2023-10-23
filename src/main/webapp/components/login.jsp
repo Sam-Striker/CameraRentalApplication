@@ -1,4 +1,3 @@
-<jsp:useBean id="userBean" class="com.samuel.camerarentapplication.BEAN.UserBean" scope="request" />
 <%--
   Created by IntelliJ IDEA.
   User: STRIKER
@@ -6,6 +5,7 @@
   Time: 7:46 PM
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:useBean id="userBean" class="com.samuel.camerarentapplication.BEAN.UserBean" scope="request" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -92,10 +92,6 @@
 
                     </select>
                 </div>
-
-<%--                <option value="<%= UserRole.SELLER.name() %>"><%= UserRole.SELLER.getDisplayName() %></option>--%>
-<%--                <option value="<%= UserRole.CLIENT.name() %>"><%= UserRole.CLIENT.getDisplayName() %></option>--%>
-
 
                 <div class="form-check">
                     <input type="checkbox" name="agree2" id="agree2" />

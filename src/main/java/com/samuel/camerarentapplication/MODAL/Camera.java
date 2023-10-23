@@ -26,7 +26,7 @@ public class Camera implements Serializable{
     @Column(name = "lense")
     private String lense;
 
-    @Column(name = "status")
+    @Column(name = "status", columnDefinition = "int default 1")
     private int status;
 
     @Column(name = "rent_status")

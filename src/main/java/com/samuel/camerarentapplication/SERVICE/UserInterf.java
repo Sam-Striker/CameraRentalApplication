@@ -10,7 +10,6 @@ public interface UserInterf {
     public Users createAccount(Users account);
     public List<Users> accountList();
     public String login(String nationalID, String password);
-    public Users findRoleById(String id);
-    public Users getUserByNationalID(String nationalID);
     public Roles findRoleByName(String roleName);
+    public Users getUserByNationalID(String nationalID);
 }
