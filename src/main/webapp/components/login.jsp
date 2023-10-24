@@ -64,6 +64,11 @@
                 </div>
 
                 <div class="form-input">
+                    <label for="nationalID">Username</label>
+                    <input type="text" name="username" id="username" required />
+                </div>
+
+                <div class="form-input">
                     <label for="password2">Password</label>
                     <input type="password" name="password" id="password2" required />
                 </div>
@@ -79,7 +84,7 @@
                 </div>
 
                 <div class="form-input">
-                    <label for="date">Date of Birth</label>
+                    <label for="date">Date</label>
                     <input type="date" name="date" id="date" required />
                 </div>
 
@@ -93,12 +98,6 @@
                     </select>
                 </div>
 
-                <div class="form-check">
-                    <input type="checkbox" name="agree2" id="agree2" />
-                    <label for="agree2"
-                    >Agree to <a href="#">Terms and Conditions</a></label
-                    >
-                </div>
                 <button type="submit">Create</button>
                 <p class="form-check">
                     Already in? <a href="#" id="loginLink">Login</a>

@@ -18,6 +18,7 @@ public class Camera implements Serializable{
     private int id;
 
     @Column(name = "serialNbr", unique = true)
+//    @Column(name = "serialNbr")
     private String serialNbr;
 
     @Column(name = "model")
@@ -26,7 +27,7 @@ public class Camera implements Serializable{
     @Column(name = "lense")
     private String lense;
 
-    @Column(name = "status", columnDefinition = "int default 1")
+    @Column(name = "status")
     private int status;
 
     @Column(name = "rent_status")

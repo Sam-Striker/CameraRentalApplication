@@ -33,17 +33,16 @@
           int userId = user.getId();
           request.getSession().setAttribute("userId", userId);
 
+
           Roles role = user.getRole();
           if (role != null) {
             String roleName = role.getRole_name();
             if ("client".equals(roleName)) {
-              // Redirect to the client page
               response.sendRedirect("../components/Client.jsp");
-              return; // Return to stop further execution
+              return;
             } else if ("seller".equals(roleName)) {
-              // Redirect to the admin page
-              response.sendRedirect("../components/InsertCamera.jsp");
-              return; // Return to stop further execution
+              response.sendRedirect("../components/ListCameras.jsp");
+              return;
             }
           }
         }

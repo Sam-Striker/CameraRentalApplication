@@ -23,7 +23,7 @@
         roleInterf roleService = new rolesIMPLEMENT();
 
         String nationalID = request.getParameter("nationalID");
-        //            Password encryption
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         String passwordHash = encoder.encode(password);
@@ -45,6 +45,7 @@
             }
 
             account.setId(account.getId());
+            account.setUsername(username);
             account.setNationalID(nationalID);
             account.setPassword(passwordHash);
             account.setAddress(address);
@@ -53,7 +54,6 @@
             account.setRole(selectedRoleEntity);
 
             service.createAccount(account);
-            // userBean.setInfoMessage("Account creation success.");
 
 
             request.getRequestDispatcher("../components/login.jsp").forward(request, response);

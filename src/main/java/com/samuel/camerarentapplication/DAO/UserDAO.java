@@ -55,7 +55,7 @@ public class UserDAO {
             query.setParameter("roleName", roleName);
             return query.getSingleResult();
         } catch (NoResultException e) {
-            return null; // Handle the case where the role is not found
+            return null;
         }
     }
 
@@ -65,7 +65,7 @@ public class UserDAO {
             query.setParameter("nationalID", nationalID);
             return query.getSingleResult();
         } catch (NoResultException e) {
-            return null; // Handle the case where the user is not found
+            return null;
         }
     }
 

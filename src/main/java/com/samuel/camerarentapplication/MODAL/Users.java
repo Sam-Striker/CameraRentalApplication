@@ -19,6 +19,8 @@ public class Users {
     @Column(name = "nationalID", unique = true)
     private String nationalID;
 
+    private String username;
+
     @Column(name = "password")
     private String password;
 

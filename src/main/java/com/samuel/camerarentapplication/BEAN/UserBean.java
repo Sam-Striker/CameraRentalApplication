@@ -20,7 +20,7 @@ public class UserBean {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+    private String username;
     private String nationalID;
     private String password;
     private String address;

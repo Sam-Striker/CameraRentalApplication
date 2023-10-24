@@ -1,6 +1,7 @@
 package com.samuel.camerarentapplication.DAO;
 
 import com.samuel.camerarentapplication.MODAL.Camera;
+import jakarta.persistence.OptimisticLockException;
 import jakarta.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -17,7 +18,7 @@ public class CameraDAO {
     public CameraDAO() {
     }
 
-    public Camera save_Cam(Camera st){
+    public Camera save_Cam(Camera st) {
         Transaction tx = session.beginTransaction();
         session.merge(st);
         tx.commit();
@@ -25,20 +26,20 @@ public class CameraDAO {
         return st;
     }
 
-    public List<Camera> retrieveCam(){
+    public List<Camera> retrieveCam() {
         return session.createQuery("from Camera ", Camera.class).list();
     }
 
     public boolean updateCamStatus(Camera cam, int newStatus) {
         Transaction tx = session.beginTransaction();
         cam.setStatus(newStatus);
-        session.update(cam);
+        session.merge(cam);
         tx.commit();
         session.close();
         return true;
     }
 
-    public Camera findCam(String serialNbr){
+    public Camera findCam(String serialNbr) {
 
         Session session = null;
         List<Camera> results = new ArrayList<>();
@@ -64,15 +65,8 @@ public class CameraDAO {
         }
     }
 
-    public boolean updateCam(Camera cam) {
-        boolean result = false;
-        Transaction tx = session.beginTransaction();
-        session.update(cam);
-        result = Boolean.TRUE;
-        tx.commit();
-        session.close();
-        return result;
-    }
+
+
 
     public boolean updateCameraRentStatus(int cameraId, String newRentStatus) {
         Transaction tx = null;
@@ -82,19 +76,19 @@ public class CameraDAO {
             Camera camera = session.get(Camera.class, cameraId);
             if (camera != null) {
                 camera.setRentStatus(newRentStatus);
-                session.update(camera);
+                session.merge(camera);
 
                 tx.commit();
                 return true;
             } else {
-                return false; // Handle the case where the camera is not found
+                return false;
             }
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }
             e.printStackTrace();
-            return false; // Handle exceptions as needed
+            return false;
         }
     }
 

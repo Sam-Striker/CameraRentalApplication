@@ -26,17 +26,11 @@ public class CameraIMPLEMENT implements cameraInterf {
         return DAO.findCam(serialNbr);
     }
 
-
-
-    @Override
-    public boolean updateCam(Camera st) {
-        return DAO.updateCam(st);
-    }
-
     @Override
     public boolean updateCamStatus(Camera cam, int newStatus) {
         return DAO.updateCamStatus(cam, newStatus);
     }
+
 
     @Override
     public boolean updateCameraRentStatus(int cameraId, String newRentStatus) {
