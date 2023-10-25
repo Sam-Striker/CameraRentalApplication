@@ -33,7 +33,7 @@ public class CameraIMPLEMENT implements cameraInterf {
 
 
     @Override
-    public boolean updateCameraRentStatus(int cameraId, String newRentStatus) {
-        return DAO.updateCameraRentStatus(cameraId, newRentStatus);
+    public boolean updateCameraRentStatus(int id, String newRentStatus) {
+        return DAO.updateCameraRentStatus(id, newRentStatus);
     }
 }

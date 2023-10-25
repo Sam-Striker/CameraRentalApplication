@@ -68,12 +68,12 @@ public class CameraDAO {
 
 
 
-    public boolean updateCameraRentStatus(int cameraId, String newRentStatus) {
+    public boolean updateCameraRentStatus(int id, String newRentStatus) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
 
-            Camera camera = session.get(Camera.class, cameraId);
+            Camera camera = session.get(Camera.class, id);
             if (camera != null) {
                 camera.setRentStatus(newRentStatus);
                 session.merge(camera);

@@ -55,7 +55,6 @@
 
             service.createAccount(account);
 
-
             request.getRequestDispatcher("../components/login.jsp").forward(request, response);
         }else{
             userBean.setErrorMessage("All inputs are required");

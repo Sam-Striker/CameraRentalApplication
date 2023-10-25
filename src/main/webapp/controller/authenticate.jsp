@@ -41,7 +41,7 @@
               response.sendRedirect("../components/Client.jsp");
               return;
             } else if ("seller".equals(roleName)) {
-              response.sendRedirect("../components/ListCameras.jsp");
+              response.sendRedirect("../components/Admin.jsp");
               return;
             }
           }
@@ -50,8 +50,10 @@
     } else {
       userBean.setNationalID(nationalID);
       userBean.setPassword(password);
-      userBean.setErrorMessage("All inputs are required");
+      userBean.setErrorMessage("mismatch id & password");
       request.getRequestDispatcher("components/login.jsp").forward(request, response);
     }
+  }else {
+    userBean.setErrorMessage("All inputs are required");
   }
 %>
