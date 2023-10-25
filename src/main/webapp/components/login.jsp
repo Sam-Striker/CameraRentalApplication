@@ -43,7 +43,7 @@
 
                 <button type="submit">Login</button>
                 <p class="form-check">
-                    New here? <a href="#" id="registerLink">Register</a>
+                    New here? <a href="#" id="registerLink" style="color: #F5F5DC">Register</a>
                 </p>
             </form>
         </div>
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="form-input">
-                    <label for="nationalID">Username</label>
+                    <label for="Username">Username</label>
                     <input type="text" name="username" id="username" required />
                 </div>
 
@@ -100,7 +100,7 @@
 
                 <button type="submit">Create</button>
                 <p class="form-check">
-                    Already in? <a href="#" id="loginLink">Login</a>
+                    Already in? <a href="#" id="loginLink" style="color: #F5F5DC">Login</a>
                 </p>
             </form>
         </div>

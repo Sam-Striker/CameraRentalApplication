@@ -9,6 +9,6 @@ public interface cameraInterf {
     public List<Camera> retrieveCam();
     public Camera findCam(String serialNbr);
     public boolean updateCamStatus(Camera cam, int newStatus);
-    public boolean updateCameraRentStatus(int cameraId, String newRentStatus);
+    public boolean updateCameraRentStatus(int id, String newRentStatus);
 
 }
