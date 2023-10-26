@@ -31,10 +31,9 @@
             <th>Serial Number</th>
             <th>Model</th>
             <th>Lens</th>
-            <th>Status</th>
+<%--            <th>Status</th>--%>
             <th>Rent Status</th>
             <th>Date</th>
-<%--            <th>Action</th>--%>
         </tr>
         </thead>
         <tbody>
@@ -44,6 +43,7 @@
             cameras = service.retrieveCam();
 
             for(Camera camera : cameras){
+                if (camera.getStatus() == 1){
         %>
         <tr>
             <td><%=camera.getId()%></td>
@@ -51,19 +51,18 @@
             <td><%=camera.getSerialNbr()%></td>
             <td><%=camera.getModel()%></td>
             <td><%=camera.getLense()%></td>
-            <td><%=camera.getStatus()%></td>
             <td><%=camera.getRentStatus()%></td>
             <td><%=camera.getDate()%></td>
             <td>
                 <div class="tdAction">
-                    <button class="updateBtn">?</button>
-<%--                    <br>--%>
-                    <button class="deleteBtn">x</button>
+                    <button class="updateBtn">UPDATE</button>
+                    <br>
+                    <button class="deleteBtn">DELETE</button>
                 </div>
             </td>
         </tr>
         <%
-            }
+            }}
         %>
         </tbody>
     </table>
@@ -140,14 +139,7 @@
             serialNbrInput.value = cells[2].textContent;
             modelInput.value = cells[3].textContent;
             lenseInput.value = cells[4].textContent;
-            dateInput.value = cells[7].textContent;
-
-            const version = cells[8].textContent;
-            const versionInput = document.createElement('input');
-            versionInput.type = 'hidden';
-            versionInput.name = 'version';
-            versionInput.value = version;
-            form.appendChild(versionInput);
+            dateInput.value = cells[6].textContent;
 
             formBtn.value = 'Delete';
             formBtn.style.backgroundColor = '#d13a3a';

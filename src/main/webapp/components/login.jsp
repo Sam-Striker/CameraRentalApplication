@@ -27,7 +27,7 @@
             <form action="../controller/authenticate.jsp" method="post">
 
                 <div class="form-error">
-                    <small style="color: darkred;">${userBean.errorMessage}</small>
+                    <small style="color: red;">${userBean.errorMessage}</small>
                     <small style="color: green;">${userBean.infoMessage}</small>
                 </div>
 
@@ -60,37 +60,37 @@
 
                 <div class="form-input">
                     <label for="nationalID">National ID</label>
-                    <input type="text" name="nationalID" id="nationalID" required />
+                    <input type="text" name="nationalID" id="nationalID"/>
                 </div>
 
                 <div class="form-input">
                     <label for="Username">Username</label>
-                    <input type="text" name="username" id="username" required />
+                    <input type="text" name="username" id="username"/>
                 </div>
 
                 <div class="form-input">
                     <label for="password2">Password</label>
-                    <input type="password" name="password" id="password2" required />
+                    <input type="password" name="password" id="password2" />
                 </div>
 
                 <div class="form-input">
                     <label for="address">Address</label>
-                    <input type="text" name="address" id="address" required />
+                    <input type="text" name="address" id="address"/>
                 </div>
 
                 <div class="form-input">
                     <label for="phoneNbr">Phone Number</label>
-                    <input type="tel" name="phoneNbr" id="phoneNbr" required />
+                    <input type="tel" name="phoneNbr" id="phoneNbr"/>
                 </div>
 
                 <div class="form-input">
                     <label for="date">Date</label>
-                    <input type="date" name="date" id="date" required />
+                    <input type="date" name="date" id="date"/>
                 </div>
 
                 <div class="form-input">
                     <label for="role">Role</label>
-                    <select name="role" id="role" required>
+                    <select name="role" id="role" >
                         <option value="" disabled selected>Select a role</option>
                         <option value="client">Client</option>
                         <option value="seller">Seller</option>
@@ -123,4 +123,40 @@
         register.classList.add("active");
         login.classList.remove("active");
     });
+
+
+    function validateRegistrationForm() {
+        const nationalID = document.getElementById("nationalID").value;
+        const username = document.getElementById("username");
+        const password = document.getElementById("password2");
+        const address = document.getElementById("address");
+        const phoneNbr = document.getElementById("phoneNbr");
+        const date = document.getElementById("date");
+        const role = document.getElementById("role");
+
+        const nameRegex = /^[A-Za-z\s]+$/; // for letters and spaces
+        const passwordRegex = /^.{5,}$/; // At least 5 characters
+        const phoneRegex = /^\d{10}$/; // Exactly 10 digits
+
+        function validateField(input, regex) {
+            if (!input.value.match(regex)) {
+                input.setCustomValidity("Invalid input");
+            } else {
+                input.setCustomValidity("");
+            }
+        }
+
+        username.addEventListener("input", () => validateField(username, nameRegex));
+        password.addEventListener("input", () => validateField(password, passwordRegex));
+        address.addEventListener("input", () => validateField(address, nameRegex));
+        phoneNbr.addEventListener("input", () => validateField(phoneNbr, phoneRegex));
+
+        if (!nationalID || !date || role.value === "default") {
+            alert("Please fill in all required fields.");
+            return false;
+        }
+
+        return true;
+    }
+
 </script>

@@ -124,7 +124,7 @@
             serialNbrInput.value = cells[2].textContent;
             modelInput.value = cells[3].textContent;
             lenseInput.value = cells[4].textContent;
-            dateInput.value = cells[7].textContent;
+            dateInput.value = cells[6].textContent;
             formBtn.value = 'UpdateStatus';
             formBtn.style.backgroundColor = '#2b9b58';
         });
