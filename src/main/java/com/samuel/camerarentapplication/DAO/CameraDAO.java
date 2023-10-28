@@ -39,35 +39,6 @@ public class CameraDAO {
         return true;
     }
 
-    public Camera findCam(String serialNbr) {
-
-        Session session = null;
-        List<Camera> results = new ArrayList<>();
-
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-
-            Query query = session.createQuery("FROM Camera WHERE serialNbr = :serialNbr");
-            query.setParameter("serialNbr", serialNbr);
-
-            results = query.getResultList();
-        } catch (HibernateException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        if (results.size() == 1) {
-            return results.get(0);
-        } else {
-            return null;
-        }
-    }
-
-
-
-
     public boolean updateCameraRentStatus(int id, String newRentStatus) {
         Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
