@@ -15,24 +15,13 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-
-    @Column(name = "nationalID", unique = true)
+    @Column(unique = true)
     private String nationalID;
-
     private String username;
-
-    @Column(name = "password")
     private String password;
-
-    @Column(name = "address")
     private String address;
-
-    @Column(name = "phoneNbr")
     private String phoneNbr;
-
-    @Column(name = "date")
     private LocalDate date;
-
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Roles role;

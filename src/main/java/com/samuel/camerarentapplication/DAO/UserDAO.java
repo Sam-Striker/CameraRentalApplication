@@ -8,8 +8,8 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 import java.util.List;
+
 
 public class UserDAO {
 
@@ -25,7 +25,6 @@ public class UserDAO {
 
         return account;
     }
-
 
     public List<Users> accountList() {
         return  session.createQuery("from Users", Users.class).list();
