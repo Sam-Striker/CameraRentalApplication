@@ -53,7 +53,6 @@
             <td><%=camera.getSerialNbr()%></td>
             <td><%=camera.getModel()%></td>
             <td><%=camera.getLense()%></td>
-<%--            <td><%=camera.getStatus()%></td>--%>
             <td><%=camera.getRentStatus()%></td>
             <td><%=camera.getDate()%></td>
             <td>
