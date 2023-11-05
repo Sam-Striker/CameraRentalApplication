@@ -32,7 +32,6 @@
             <th>Serial Number</th>
             <th>Model</th>
             <th>Lens</th>
-<%--            <th>Status</th>--%>
             <th>Rent Status</th>
             <th>Date</th>
             <th>Action</th>
